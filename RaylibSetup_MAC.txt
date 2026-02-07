@@ -1,0 +1,48 @@
+RAYLIB ON MAC:
+- Follow instructions from https://youtu.be/MluOQdBuwiU for installation
+
+- Go to github.com/raysan5/raylib
+- Click Code and in HTTPS, download the zip file (location doesn't matter), unzip it, delete the zip file.
+- Open terminal and cd into the unzipped folder.
+$ ls
+- to show all files in this folder. It should be something like this:
+BINDINGS.md		CONTRIBUTING.md		projects
+build.zig		CONVENTIONS.md		raylib.pc.in
+build.zig.zon		examples		README.md
+CHANGELOG		FAQ.md			ROADMAP.md
+cmake			HISTORY.md		src
+CMakeLists.txt		LICENSE			tools
+CMakeOptions.txt	logo
+
+-  cd into src and run:
+$ export MACOSX_DEPLOYMENT_TARGET=10.9
+
+- It will not show anything, but it is done.
+- Now, run:
+$ make clean
+- Should say: removed all generated files!
+$ make
+- Lots of Werrors, unused functions and stuff, let it do its thing. It's compiling the raylib static library.
+- At the end it should say: raylib static library generated (libraylib.a) in ../src!
+- Now, $ ls should show a lot of .c .h .o and other files.
+
+- Make a folder somewhere with a raylib skeleton. Copy this folder for every new Raylib project.
+- Make two folders in this: "lib" and "include"
+- in lib, copy 'libraylib.a' from src.
+- in include, copy ‘raylib.h’, ‘raymath.h’, ‘rlgl.h’
+
+- For compilation, the command is: 
+	clang++ *.cpp -L lib/ -framework CoreVideo -framework IOKit -framework Cocoa -framework GLUT -framework OpenGL lib/libraylib.a -o yourbinaryname
+
+- Running is same: ./yourbinaryname
+	or append the compilation command with && ./yourbinaryname
+
+- Explanation:
+	- clang++ = calling the compiler.
+	- *.cpp = telling it to compile all .cpp files in the directory.
+	- -L lib/ = finding the lib folder in this directory to find raylib.
+	- -framework (CoreVideo, IOKit, Cocoa, GLUT, OpenGL) = Apple system frameworks that raylib depends on.
+	- lib/libraylib.a = precompiled raylib binary file for running raylib
+	- -o yourbinaryname = creates the binary file with the name you give it
+
+- Remember: #include "raylib.h" NOT #include <raylib.h>
