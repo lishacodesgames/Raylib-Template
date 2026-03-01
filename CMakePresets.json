@@ -15,53 +15,16 @@
          }
       },
 
-
       {
-         "name": "Linux-Base",
-         "hidden": true,
+         "name": "Debug",
          "inherits": "base",
-         "condition": {
-            "type": "equals",
-            "lhs": "${hostSystemName}",
-            "rhs": "Linux"
-         }
-      },
-      {
-         "name": "Linux-Debug",
-         "inherits": "Linux-Base",
          "cacheVariables": {
             "CMAKE_BUILD_TYPE": "Debug"
          }
       },
       {
-         "name": "Linux-Release",
-         "inherits": "Linux-Base",
-         "cacheVariables": {
-            "CMAKE_BUILD_TYPE": "Release"
-         }
-      },
-
-
-      {
-         "name": "Windows-Base",
-         "hidden": true,
+         "name": "Release",
          "inherits": "base",
-         "condition": {
-            "type": "equals",
-            "lhs": "${hostSystemName}",
-            "rhs": "Windows"
-         }
-      },
-      {
-         "name": "Windows-Debug",
-         "inherits": "Windows-Base",
-         "cacheVariables": {
-            "CMAKE_BUILD_TYPE": "Debug"
-         }
-      },
-      {
-         "name": "Windows-Release",
-         "inherits": "Windows-Base",
          "cacheVariables": {
             "CMAKE_BUILD_TYPE": "Release"
          }
@@ -69,22 +32,12 @@
    ],
    "buildPresets": [
       {
-         "name": "Linux-Debug",
-         "configurePreset": "Linux-Debug"
+         "name": "Debug",
+         "configurePreset": "Debug"
       },
       {
-         "name": "Linux-Release",
-         "configurePreset": "Linux-Release"
-      },
-
-
-      {
-         "name": "Windows-Debug",
-         "configurePreset": "Windows-Debug"
-      },
-      {
-         "name": "Windows-Release",
-         "configurePreset": "Windows-Release"
+         "name": "Release",
+         "configurePreset": "Release"
       }
    ]
 }
