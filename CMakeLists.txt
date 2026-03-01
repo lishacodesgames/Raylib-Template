@@ -12,14 +12,17 @@ set(BUILD_EXAMPLES OFF CACHE BOOL "" FORCE)
 
 add_subdirectory(raylib)
 
-add_executable(${PROJECT_NAME} # EDIT name of your binary
+add_executable( ${PROJECT_NAME}
    src/main.cpp
-   src/example_game.cpp # can delete. I've just added a test loop in there to test your build system immediately
+   src/Game.cpp # can delete. I've just added a test loop in there to test your build system immediately. Add all other source files here, separated by whitespaces or newlines
 )
 
-# where #include "" jumps to. replace with src if you want both .h and .c or .hpp and .cpp in src/
+# our preocompiled header pile
+target_precompile_headers( ${PROJECT_NAME} PRIVATE include/Precompiled.h)
+
+# where #include "" or <> jumps to. replace with src if you want both .h and .c or .hpp and .cpp in src/
 # remove this if your headers are not in a subdirectory
-target_include_directories(${PROJECT_NAME} PRIVATE include )
+target_include_directories( ${PROJECT_NAME} PRIVATE include )
 
 # external libraries
-target_link_libraries(${PROJECT_NAME} PRIVATE raylib )
+target_link_libraries( ${PROJECT_NAME} PRIVATE raylib )
