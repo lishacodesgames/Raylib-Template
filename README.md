@@ -1,4 +1,4 @@
-# Raylib-CMake-Template
+# Raylib-Template
 Minimal game template using raylib as a git submodule and CMake. <br>
 This repository is intended to be used as a starting point for a new raylib project
 
@@ -24,8 +24,8 @@ What your project architecture should ideally look like for the CMakeLists.txt I
 ## Build
 `mkdir build`
 `cd build` <br>
-`cmake --preset <your-os>-Debug` OR `cmake --preset <your-os>-Release` -- (configuration of cmake) <br>
-`cmake --build --preset <your-os>-Debug` OR `cmake --build --preset <your-os>-Release` -- (compilation + build of your files, only what has changed since last build)
+`cmake --preset Debug` OR `cmake --preset Release` -- (configuration of cmake) <br>
+`cmake --build --preset Debug` OR `cmake --build --preset Release` -- (compilation + build of your files, only what has changed since last build)
 <br>
 
 *Check out ![CMakePresets.json](CMakePresets.json) if you're confused* <br>
