@@ -1,16 +1,8 @@
 # Raylib-Template
-Minimal game template using raylib as a git submodule and CMake. <br>
+*Minimal* game template using raylib as a git submodule and CMake. <br>
 This repository is intended to be used as a starting point for a new raylib project.
-<br>
-This template has 2 branches. *main* and *app-gui*
-<br>
 
-**main:** a simple template without any major subdirectories <br>
-
-**app-lib-gui:** for those who want a distinct separation between the core app, external libraries, and gui code. <br>
-This can be used as-is (like I do) or any subdirectories can be added or removed as needed.
-
-Respective README's will tell you more about the **process**
+*I also have a more modular (lib-based) template, ![check it out](https://github.com/lishacodesgames/Raylib-Modular-Template)*
 
 ## How to Clone
 `git clone --recursive` to get the raylib submodule local
@@ -23,15 +15,15 @@ Respective README's will tell you more about the **process**
 What your project architecture should ideally look like for the CMakeLists.txt I've included (Can change accordingly, otherwise)
 ```bash
 ‖
+‖——.git*
+‖——CMakeLists.txt
+‖——CMakePresets.json
 ‖——include/
 ‖  ‖——*.h or *.hpp → all *your* header files
 ‖——src/
 ‖  ‖——main.cpp
 ‖  ‖——*.cpp  → all other source files
 ‖——raylib/   → your raylib engine (submodule)
-‖——.git*
-‖——CMakeLists.txt
-‖——CMakePresets.json
 ```
 ## Build
 `mkdir build`
