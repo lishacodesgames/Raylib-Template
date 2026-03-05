@@ -25,6 +25,16 @@ What your project architecture should ideally look like for the CMakeLists.txt I
 ‖  ‖——*.cpp  → all other source files
 ‖——raylib/   → your raylib engine (submodule)
 ```
+
+**Note:** if you are using c++, the repository might show C because of the raylib files. <br>
+Just add this to `.gitattributes` <br>
+```
+**/*.h linguist-vendored
+**/*.c linguist-vendored
+```
+
+Now your repository will show C++
+
 ## Build
 `mkdir build`
 `cd build` <br>
